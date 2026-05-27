@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="sr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedicHill | Premium Plastična Hirurgija i Estetska Medicina Beograd</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxuryBlack: '#0F0F0F',
+                        luxuryCharcoal: '#1A1A1A',
+                        luxuryBeige: '#F7F4F0',
+                        luxuryCream: '#FCFBFA',
+                        luxuryGold: '#C5A880',
+                        luxuryGoldHover: '#B3966E',
+                        luxuryGray: '#7E7A74',
+                        luxuryLightGray: '#E9E4DB',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for Editorial Elegance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom Fine-tuning for Premium Feel */
+        ::selection {
+            background-color: #C5A880;
+            color: #0F0F0F;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FCFBFA;
+            color: #0F0F0F;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-editorial {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom luxury scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F4F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A880;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A0855F;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-premium {
+            background: rgba(252, 251, 250, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 168, 128, 0.15);
+        }
+
+        /* Custom Interactive Slider style */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* Custom cursor style - Enabled on desktop */
+        @media (min-width: 1024px) {
+            .custom-cursor {
+                width: 12px;
+                height: 12px;
+                border: 1px solid #C5A880;
+                border-radius: 50%;
+                position: fixed;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                z-index: 9999;
+                transition: width 0.3s, height 0.3s, background-color 0.3s;
+            }
+            .custom-cursor-dot {
+                width: 4px;
+                height: 4px;
+                background-color: #C5A880;
+                border-radius: 50%;
+                position: fixed;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                z-index: 9999;
+                transition: transform 0.1s;
+            }
+            .hover-luxury:hover ~ .custom-cursor {
+                width: 48px;
+                height: 48px;
+                background-color: rgba(197, 168, 128, 0.1);
+                border-color: #C5A880;
+            }
+        }
+
+        /* Cinematic Gradients */
+        .gradient-hero {
+            background: linear-gradient(180deg, rgba(15,15,15,0.4) 0%, rgba(15,15,15,0.85) 100%);
+        }
+
+        /* Smooth transitions */
+        .transition-lux {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hero image pulsing & ambient glow */
+        @keyframes ambient-glow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 0.95; transform: scale(1.03); }
+        }
+        .animate-ambient {
+            animation: ambient-glow 15s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Custom Cursor elements -->
+    <div class="custom-cursor hidden lg:block" id="customCursor"></div>
+    <div class="custom-cursor-dot hidden lg:block" id="customCursorDot"></div>
+
+    <!-- EXCLUSIVE TOP BAR / Announcement -->
+    <div class="w-full bg-luxuryBlack text-[10px] uppercase tracking-[0.25em] text-luxuryGold py-3 px-6 flex justify-between items-center border-b border-white/5 relative z-50">
+        <div class="hidden md:block">Požeška 80, Banovo brdo, Beograd</div>
+        <div class="mx-auto md:mx-0 font-medium font-sans">Zakazivanje i konsultacije: +381 (0)64 4-900-900</div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:0113555955" class="hover:text-white transition-lux">011/3555-955</a>
+            <span class="text-white/30">|</span>
+            <span class="text-white">SRB</span>
+        </div>
+    </div>
+
+    <!-- LUXURY NAVIGATION HEADER -->
+    <header class="sticky top-0 w-full z-40 transition-lux py-4 px-6 lg:px-16 bg-luxuryCream" id="mainHeader">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <!-- Logo Section with the Real Uploaded MedicHill circle logo -->
+            <a href="#" class="flex items-center space-x-3 hover-luxury group">
+                <div class="relative w-12 h-12 lg:w-14 lg:h-14 rounded-full overflow-hidden border border-luxuryGold/20 bg-white p-0.5 flex items-center justify-center transition-lux group-hover:border-luxuryGold shadow-sm">
+                    <img src="Logo-Medic-Hill-01-1-1.png" 
+                         alt="MedicHill Logo" 
+                         class="w-full h-full object-contain">
+                </div>
+                <div class="flex flex-col items-start">
+                    <div class="flex items-baseline space-x-0.5">
+                        <span class="text-xl lg:text-2xl font-light tracking-[0.1em] uppercase text-luxuryBlack group-hover:text-luxuryGold transition-lux">Medic</span>
+                        <span class="text-xl lg:text-2xl font-bold tracking-[0.1em] uppercase text-luxuryGold">Hill</span>
+                    </div>
+                    <span class="text-[7px] lg:text-[8px] tracking-[0.38em] uppercase text-luxuryGray -mt-0.5 font-semibold">Estetska Hirurgija</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu Links -->
+            <nav class="hidden lg:flex items-center space-x-10 text-xs uppercase tracking-[0.2em] text-luxuryBlack/80 font-semibold">
+                <a href="#procedures" class="hover-luxury hover:text-luxuryGold transition-lux relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:height-[1px] after:bg-luxuryGold hover:after:w-full after:transition-all after:duration-300">Procedure</a>
+                <a href="#before-after" class="hover-luxury hover:text-luxuryGold transition-lux relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:height-[1px] after:bg-luxuryGold hover:after:w-full after:transition-all after:duration-300">Pre & Posle</a>
+                <a href="#doctors" class="hover-luxury hover:text-luxuryGold transition-lux relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:height-[1px] after:bg-luxuryGold hover:after:w-full after:transition-all after:duration-300">Naš Tim</a>
+                <a href="#testimonials" class="hover-luxury hover:text-luxuryGold transition-lux relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:height-[1px] after:bg-luxuryGold hover:after:w-full after:transition-all after:duration-300">Iskustva</a>
+                <a href="#faq" class="hover-luxury hover:text-luxuryGold transition-lux relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:height-[1px] after:bg-luxuryGold hover:after:w-full after:transition-all after:duration-300">FAQ</a>
+                <a href="#contact" class="hover-luxury hover:text-luxuryGold transition-lux relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:height-[1px] after:bg-luxuryGold hover:after:w-full after:transition-all after:duration-300">Kontakt</a>
+            </nav>
+
+            <!-- CTA / Contact Trigger -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="#contact" class="hover-luxury inline-block text-xs uppercase tracking-[0.2em] border border-luxuryGold bg-transparent text-luxuryBlack py-3 px-7 rounded-none hover:bg-luxuryBlack hover:text-luxuryBeige hover:border-luxuryBlack transition-lux">
+                    Zakažite Pregled
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="lg:hidden text-luxuryBlack focus:outline-none p-2" id="mobileMenuToggle" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Fullscreen Menu overlay -->
+        <div class="fixed inset-0 bg-luxuryBlack text-white transform translate-x-full transition-transform duration-500 z-50 flex flex-col justify-between p-8" id="mobileMenu">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full overflow-hidden bg-white p-0.5">
+                        <img src="Logo-Medic-Hill-01-1-1.png" alt="MedicHill Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex items-baseline space-x-1">
+                        <span class="text-xl font-light tracking-[0.15em] uppercase text-white">Medic</span>
+                        <span class="text-xl font-semibold tracking-[0.15em] uppercase text-luxuryGold">Hill</span>
+                    </div>
+                </div>
+                <button class="text-white p-2" id="mobileMenuClose">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <nav class="flex flex-col space-y-6 text-xl tracking-[0.2em] uppercase font-light my-auto pl-4 border-l border-luxuryGold/30">
+                <a href="#procedures" class="hover:text-luxuryGold transition-lux" onclick="toggleMobileMenu()">Procedure</a>
+                <a href="#before-after" class="hover:text-luxuryGold transition-lux" onclick="toggleMobileMenu()">Pre & Posle</a>
+                <a href="#doctors" class="hover:text-luxuryGold transition-lux" onclick="toggleMobileMenu()">Naš Tim</a>
+                <a href="#testimonials" class="hover:text-luxuryGold transition-lux" onclick="toggleMobileMenu()">Iskustva</a>
+                <a href="#faq" class="hover:text-luxuryGold transition-lux" onclick="toggleMobileMenu()">FAQ</a>
+                <a href="#contact" class="hover:text-luxuryGold transition-lux" onclick="toggleMobileMenu()">Kontakt</a>
+            </nav>
+
+            <div class="space-y-4">
+                <a href="tel:0644900900" class="block text-center text-sm uppercase tracking-[0.2em] border border-luxuryGold/30 py-4 text-luxuryGold hover:bg-luxuryGold hover:text-black transition-lux">
+                    +381 (0)64 4-900-900
+                </a>
+                <p class="text-center text-[10px] uppercase tracking-[0.25em] text-luxuryGray">
+                    Požeška 80, Banovo brdo, Beograd
+                </p>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- FULLSCREEN HERO SECTION (CINEMATIC) -->
+    <section class="relative min-h-[92vh] lg:min-h-[100vh] flex items-center bg-luxuryBlack overflow-hidden -mt-[140px] pt-[140px]">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center animate-ambient scale-105 opacity-40 mix-blend-luminosity transition-all duration-[2000ms]" 
+                 style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="absolute inset-0 gradient-hero z-10"></div>
+            <div class="absolute top-[20%] right-[10%] w-[500px] h-[500px] rounded-full bg-luxuryGold/10 filter blur-[120px] pointer-events-none"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-20 w-full py-12 lg:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Main Copy -->
+                <div class="lg:col-span-8 space-y-8">
+                    <div class="flex items-center space-x-3 opacity-90">
+                        <span class="w-1.5 h-1.5 rounded-full bg-luxuryGold animate-ping"></span>
+                        <span class="text-[10px] lg:text-xs uppercase tracking-[0.4em] text-luxuryGold font-medium">Medicinska Umetnost &amp; Hirurgija</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl text-luxuryCream leading-[1.08] font-light tracking-tight">
+                        Umetnost <br>
+                        <span class="italic text-luxuryGold font-serif font-medium">suptilne</span> <br>
+                        transformacije.
+                    </h1>
+
+                    <p class="text-luxuryBeige/80 text-sm sm:text-base lg:text-lg max-w-xl font-light leading-relaxed tracking-wide">
+                        Specijalizovana beogradska ordinacija za plastičnu, rekonstruktivnu i estetsku hirurgiju. Čuvamo Vaš prirodni karakter kroz najsavremenije evropske medicinske protokole i stručnost eminentnih hirurga.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a href="#contact" class="hover-luxury inline-flex justify-center items-center text-xs uppercase tracking-[0.25em] bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack font-semibold py-5 px-10 rounded-none transition-lux shadow-2xl">
+                            Zakažite Konsultaciju
+                        </a>
+                        <a href="#procedures" class="hover-luxury inline-flex justify-center items-center text-xs uppercase tracking-[0.25em] text-white hover:text-luxuryGold border border-white/20 hover:border-luxuryGold py-5 px-10 rounded-none bg-white/5 backdrop-blur-sm transition-lux">
+                            Istražite Procedure
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Circular Cinematic Feature Widget on Right -->
+                <div class="hidden lg:col-span-4 lg:flex flex-col items-center justify-center">
+                    <div class="relative w-72 h-72 rounded-full border border-luxuryGold/20 flex items-center justify-center p-2 group hover:border-luxuryGold/40 transition-lux">
+                        <div class="absolute inset-0 rounded-full border border-dashed border-luxuryGold/10 animate-[spin_60s_linear_infinite]"></div>
+                        <div class="w-full h-full rounded-full overflow-hidden relative">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[3000ms] group-hover:scale-110" 
+                                 style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1000&auto=format&fit=crop');">
+                            </div>
+                            <div class="absolute inset-0 bg-luxuryBlack/35 group-hover:bg-luxuryBlack/15 transition-lux flex items-center justify-center">
+                                <span class="text-[10px] tracking-[0.3em] uppercase text-white font-medium bg-luxuryBlack/85 px-4 py-2 border border-luxuryGold/20">Zlatni Presek</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center space-y-2 opacity-60">
+            <span class="text-[8px] uppercase tracking-[0.35em] text-luxuryBeige font-light">Otkrijte Više</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-luxuryGold to-transparent"></div>
+        </div>
+    </section>
+
+
+    <!-- TRUST & AUTHORITY SECTION -->
+    <section class="py-24 lg:py-36 bg-luxuryCream border-b border-luxuryLightGray relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-16">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Left Narrative Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="text-[11px] uppercase tracking-[0.4em] text-luxuryGold font-semibold">MedicHill Standard</div>
+                    <h2 class="text-3xl lg:text-5xl text-luxuryBlack font-light leading-tight">
+                        Izuzetna nega <br>utemeljena na <br><span class="italic font-serif font-medium">iskustvu</span>.
+                    </h2>
+                    <p class="text-luxuryGray text-sm lg:text-base leading-relaxed font-light">
+                        MedicHill u Beogradu predstavlja simbiozu medicinskog ekspertskog znanja, visoke tehnologije i prefinjenog umetničkog osećaja za proporcije. Naša filozofija se temelji na minimalno invazivnim metodama i dugotrajno prirodnim rezultatima.
+                    </p>
+                    <div class="pt-4">
+                        <div class="inline-flex items-center space-x-3 text-luxuryBlack font-semibold uppercase tracking-[0.2em] text-xs">
+                            <span>Sertifikovana oprema po svetskim standardima</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Stats Metric Layout -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
+                    
+                    <!-- Stat Card 1 -->
+                    <div class="p-8 bg-luxuryBeige border border-luxuryLightGray/40 relative group hover:border-luxuryGold/40 transition-lux">
+                        <div class="text-4xl lg:text-5xl font-light text-luxuryBlack mb-2 font-serif flex items-center">
+                            <span class="text-luxuryGold">+</span>
+                            <span class="counter" data-target="25">0</span>
+                        </div>
+                        <div class="text-[11px] uppercase tracking-[0.25em] text-luxuryGray font-medium mb-3">Godina Specijalističkog Iskustva</div>
+                        <p class="text-xs text-luxuryGray/85 font-light leading-relaxed">
+                            Naši lekari konstantno usavršavaju hirurške i neinvazivne protokole u Parizu, Milanu i Njujorku.
+                        </p>
+                    </div>
+
+                    <!-- Stat Card 2 -->
+                    <div class="p-8 bg-luxuryBeige border border-luxuryLightGray/40 relative group hover:border-luxuryGold/40 transition-lux">
+                        <div class="text-4xl lg:text-5xl font-light text-luxuryBlack mb-2 font-serif flex items-center">
+                            <span class="counter" data-target="99">0</span>
+                            <span class="text-luxuryGold">%</span>
+                        </div>
+                        <div class="text-[11px] uppercase tracking-[0.25em] text-luxuryGray font-medium mb-3">Zadovoljstvo Pacijenata</div>
+                        <p class="text-xs text-luxuryGray/85 font-light leading-relaxed">
+                            Suptilne korekcije lica i tela koje poštuju prirodnu anatomiju i donose samopouzdanje.
+                        </p>
+                    </div>
+
+                    <!-- Stat Card 3 -->
+                    <div class="p-8 bg-luxuryBeige border border-luxuryLightGray/40 relative group hover:border-luxuryGold/40 transition-lux">
+                        <div class="text-4xl lg:text-5xl font-light text-luxuryBlack mb-2 font-serif flex items-center">
+                            <span class="text-luxuryGold">+</span>
+                            <span class="counter" data-target="15">0</span>
+                            <span class="text-sm font-sans ml-1 text-luxuryGray font-semibold">hiljada</span>
+                        </div>
+                        <div class="text-[11px] uppercase tracking-[0.25em] text-luxuryGray font-medium mb-3">Uspešnih Procedura</div>
+                        <p class="text-xs text-luxuryGray/85 font-light leading-relaxed">
+                            Od finih anti-aging korekcija filerima do kompleksnih rekonstruktivnih zahvata.
+                        </p>
+                    </div>
+
+                    <!-- Stat Card 4 -->
+                    <div class="p-8 bg-luxuryBeige border border-luxuryLightGray/40 relative group hover:border-luxuryGold/40 transition-lux">
+                        <div class="text-4xl lg:text-5xl font-light text-luxuryBlack mb-2 font-serif flex items-center">
+                            <span class="text-luxuryGold">100%</span>
+                        </div>
+                        <div class="text-[11px] uppercase tracking-[0.25em] text-luxuryGray font-medium mb-3">Evropski Sertifikati</div>
+                        <p class="text-xs text-luxuryGray/85 font-light leading-relaxed">
+                            Svi materijali (fileri, botoks, niti) su odobreni od ALIMS-a i vrhunskih globalnih proizvođača.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FEATURED PROCEDURES SECTION -->
+    <section id="procedures" class="py-24 lg:py-36 bg-luxuryBeige relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-16">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col lg:flex-row lg:justify-between lg:items-end mb-16 lg:mb-24 space-y-6 lg:space-y-0">
+                <div class="space-y-4">
+                    <span class="text-[11px] uppercase tracking-[0.4em] text-luxuryGold font-semibold block">Ekskluzivni Portfolio</span>
+                    <h2 class="text-3xl lg:text-6xl text-luxuryBlack font-light">Procedure estetske <br>i plastične <span class="italic font-serif font-medium">hirurgije</span></h2>
+                </div>
+                <p class="text-luxuryGray text-sm lg:text-base max-w-md font-light leading-relaxed">
+                    Izaberite precizno formulisane hirurške i nehirurške tretmane skrojene po Vašim jedinstvenim crtama lica i tela.
+                </p>
+            </div>
+
+            <!-- Procedures Grid (6 Core Procedures) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                
+                <!-- Card 1: Botoks -->
+                <div class="bg-luxuryCream border border-luxuryLightGray/60 overflow-hidden group hover:shadow-2xl hover:border-luxuryGold/60 transition-lux flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-luxuryBlack">
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Botoks Tretman" 
+                             class="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                             loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-luxuryBlack/90 text-luxuryGold text-[9px] uppercase tracking-[0.25em] py-1.5 px-3">Nehirurški</span>
+                    </div>
+                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h3 class="text-xl lg:text-2xl text-luxuryBlack font-light group-hover:text-luxuryGold transition-lux">Botoks Tretmani lica</h3>
+                            <p class="text-xs text-luxuryGray leading-relaxed font-light">
+                                Suptilna redukcija bora na čelu, oko očiju i između obrva uz očuvanje prirodne ekspresije lica. Prevencija starenja u tri strateške tačke.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex justify-between items-center border-t border-luxuryLightGray/40 text-xs uppercase tracking-[0.2em]">
+                            <span class="text-luxuryGold font-semibold">Trajanje: 15-30 min</span>
+                            <a href="#contact" class="hover-luxury text-luxuryBlack font-bold group-hover:translate-x-1 transition-transform">Saznaj Više &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Rinoplastika -->
+                <div class="bg-luxuryCream border border-luxuryLightGray/60 overflow-hidden group hover:shadow-2xl hover:border-luxuryGold/60 transition-lux flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-luxuryBlack">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Rinoplastika" 
+                             class="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                             loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-luxuryBlack/90 text-luxuryGold text-[9px] uppercase tracking-[0.25em] py-1.5 px-3">Hirurški</span>
+                    </div>
+                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h3 class="text-xl lg:text-2xl text-luxuryBlack font-light group-hover:text-luxuryGold transition-lux">Rinoplastika (Korekcija Nosa)</h3>
+                            <p class="text-xs text-luxuryGray leading-relaxed font-light">
+                                Estetska i funkcionalna operacija nosa (septorhinoplastica) za postizanje idealne harmonije profila i poboljšanje prohodnosti disajnih puteva.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex justify-between items-center border-t border-luxuryLightGray/40 text-xs uppercase tracking-[0.2em]">
+                            <span class="text-luxuryGold font-semibold">Hirurgija</span>
+                            <a href="#contact" class="hover-luxury text-luxuryBlack font-bold group-hover:translate-x-1 transition-transform">Saznaj Više &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Blefaroplastika -->
+                <div class="bg-luxuryCream border border-luxuryLightGray/60 overflow-hidden group hover:shadow-2xl hover:border-luxuryGold/60 transition-lux flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-luxuryBlack">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Blefaroplastika" 
+                             class="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                             loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-luxuryBlack/90 text-luxuryGold text-[9px] uppercase tracking-[0.25em] py-1.5 px-3">Hirurški</span>
+                    </div>
+                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h3 class="text-xl lg:text-2xl text-luxuryBlack font-light group-hover:text-luxuryGold transition-lux">Blefaroplastika (Kapci)</h3>
+                            <p class="text-xs text-luxuryGray leading-relaxed font-light">
+                                Podmlađivanje regije oka kroz uklanjanje viška kože i masnih jastučića na gornjim i donjim kapcima. Vraća odmoran i blistav izgled licu.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex justify-between items-center border-t border-luxuryLightGray/40 text-xs uppercase tracking-[0.2em]">
+                            <span class="text-luxuryGold font-semibold">Lokalna anestezija</span>
+                            <a href="#contact" class="hover-luxury text-luxuryBlack font-bold group-hover:translate-x-1 transition-transform">Saznaj Više &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Hijaluron -->
+                <div class="bg-luxuryCream border border-luxuryLightGray/60 overflow-hidden group hover:shadow-2xl hover:border-luxuryGold/60 transition-lux flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-luxuryBlack">
+                        <img src="https://images.unsplash.com/photo-1614859324967-bdf461fec769?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Hijaluronski Fileri" 
+                             class="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                             loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-luxuryBlack/90 text-luxuryGold text-[9px] uppercase tracking-[0.25em] py-1.5 px-3">Nehirurški</span>
+                    </div>
+                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h3 class="text-xl lg:text-2xl text-luxuryBlack font-light group-hover:text-luxuryGold transition-lux">Hijaluronski Fileri</h3>
+                            <p class="text-xs text-luxuryGray leading-relaxed font-light">
+                                Volumizacija usana, redefinisanje vilične linije i jagodica. Koristimo holds-premium filere vodećih brendova sa produženim efektom trajanja.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex justify-between items-center border-t border-luxuryLightGray/40 text-xs uppercase tracking-[0.2em]">
+                            <span class="text-luxuryGold font-semibold">Brz oporavak</span>
+                            <a href="#contact" class="hover-luxury text-luxuryBlack font-bold group-hover:translate-x-1 transition-transform">Saznaj Više &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Podmlađivanje kože -->
+                <div class="bg-luxuryCream border border-luxuryLightGray/60 overflow-hidden group hover:shadow-2xl hover:border-luxuryGold/60 transition-lux flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-luxuryBlack">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Podmlađivanje" 
+                             class="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                             loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-luxuryBlack/90 text-luxuryGold text-[9px] uppercase tracking-[0.25em] py-1.5 px-3">Premium Nega</span>
+                    </div>
+                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h3 class="text-xl lg:text-2xl text-luxuryBlack font-light group-hover:text-luxuryGold transition-lux">Dubinsko Podmlađivanje</h3>
+                            <p class="text-xs text-luxuryGray leading-relaxed font-light">
+                                Mezoniti (3D, mono, spiralne), Silhouette Soft hirurške niti, Mezoterapija, PRP terapija plazmom, biorevitalizacija i premium skin boosteri za mladalačku teksturu kože.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex justify-between items-center border-t border-luxuryLightGray/40 text-xs uppercase tracking-[0.2em]">
+                            <span class="text-luxuryGold font-semibold">Sertifikovani preparati</span>
+                            <a href="#contact" class="hover-luxury text-luxuryBlack font-bold group-hover:translate-x-1 transition-transform">Saznaj Više &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Liposukcija -->
+                <div class="bg-luxuryCream border border-luxuryLightGray/60 overflow-hidden group hover:shadow-2xl hover:border-luxuryGold/60 transition-lux flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-luxuryBlack">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Liposukcija" 
+                             class="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                             loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-luxuryBlack/90 text-luxuryGold text-[9px] uppercase tracking-[0.25em] py-1.5 px-3">Hirurški</span>
+                    </div>
+                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h3 class="text-xl lg:text-2xl text-luxuryBlack font-light group-hover:text-luxuryGold transition-lux">Liposukcija &amp; Oblikovanje</h3>
+                            <p class="text-xs text-luxuryGray leading-relaxed font-light">
+                                Efikasno uklanjanje upornih lokalizovanih masnih naslaga sa stomaka, bokova, butina ili podbratka. Precizno vajanje siluete tela.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex justify-between items-center border-t border-luxuryLightGray/40 text-xs uppercase tracking-[0.2em]">
+                            <span class="text-luxuryGold font-semibold">Vajanje siluete</span>
+                            <a href="#contact" class="hover-luxury text-luxuryBlack font-bold group-hover:translate-x-1 transition-transform">Saznaj Više &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Note -->
+            <div class="mt-16 text-center">
+                <p class="text-xs text-luxuryGray font-light tracking-wide">
+                    Izvodimo i druge specijalizovane zahvate: operacije dojki (povećanje, smanjenje), zatezanje stomaka (abdominoplastika) i uklanjanje tumora kože.
+                    <a href="#contact" class="hover-luxury text-luxuryGold font-medium underline ml-1 hover:text-luxuryBlack transition-lux">Konsultujte nas &rarr;</a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- INTERACTIVE BEFORE & AFTER SLIDER SECTION -->
+    <section id="before-after" class="py-24 lg:py-36 bg-luxuryBlack text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-16">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Narrative Side -->
+                <div class="lg:col-span-5 space-y-8">
+                    <span class="text-[11px] uppercase tracking-[0.4em] text-luxuryGold font-semibold block">Vidljiva Prirodnost</span>
+                    <h2 class="text-3xl lg:text-5xl font-light text-luxuryCream leading-tight">
+                        Preciznost koja menja <br><span class="italic font-serif font-medium">samopouzdanje</span>.
+                    </h2>
+                    <p class="text-luxuryBeige/75 text-sm lg:text-base leading-relaxed font-light">
+                        Pravi luksuz u estetskoj hirurgiji leži u tome da promena bude primetna, a da niko ne pretpostavi da ste imali intervenciju. Prevucite klizač na našem interaktivnom prikazu da biste videli harmoniju kože i suptilnu revitalizaciju na primeru iste osobe.
+                    </p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start space-x-4">
+                            <span class="w-6 h-6 rounded-full border border-luxuryGold/40 flex items-center justify-center text-xs text-luxuryGold mt-1 font-serif">1</span>
+                            <div>
+                                <h4 class="text-sm font-medium tracking-wide font-sans">Analiza strukture lica</h4>
+                                <p class="text-xs text-luxuryGray/90 font-light mt-1">Poštujemo prirodne ose i zlatni presek Vaše fizionomije.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="w-6 h-6 rounded-full border border-luxuryGold/40 flex items-center justify-center text-xs text-luxuryGold mt-1 font-serif">2</span>
+                            <div>
+                                <h4 class="text-sm font-medium tracking-wide font-sans">Bez oštrih veštačkih prelaza</h4>
+                                <p class="text-xs text-luxuryGray/90 font-light mt-1">Krajnji rezultat je svežina, harmonija i odmoran izgled lica.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Comparison Slider Side (Using single female model for realistic comparison) -->
+                <div class="lg:col-span-7 flex flex-col items-center">
+                    
+                    <div class="slider-container w-full max-w-xl aspect-[4/5] border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.6)] cursor-ew-resize rounded-sm relative" id="baSlider">
+                        
+                        <!-- BEFORE Image (Base Layer - Elegant model portrait) -->
+                        <div class="absolute inset-0 bg-cover bg-center select-none" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop');">
+                            <!-- Label Before -->
+                            <span class="absolute bottom-6 left-6 bg-luxuryBlack/85 backdrop-blur-md text-[10px] tracking-[0.25em] text-white uppercase py-2 px-4 border border-white/10 z-20 font-semibold">PRE TRETMANA</span>
+                        </div>
+
+                        <!-- AFTER Image (Overlay Layer - EXACT same elegant model portrait with highly advanced cinematic skin glow & subtle premium contour filters applied) -->
+                        <div class="absolute inset-0 bg-cover bg-center select-none overflow-hidden" id="afterImageContainer" style="width: 50%;">
+                            <div class="absolute inset-0 bg-cover bg-center filter brightness-[1.04] saturate-[1.03] contrast-[0.98] blur-[0.2px]" 
+                                 style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop'); width: 570px; max-width: none;">
+                                <!-- Elegant warm light gloss overlay representing high-end skin revitalization -->
+                                <div class="absolute inset-0 bg-gradient-to-tr from-luxuryGold/10 via-white/5 to-transparent mix-blend-screen"></div>
+                                <div class="absolute inset-0 bg-[#FFF9F2]/5 mix-blend-color"></div>
+                                <!-- Label After -->
+                                <span class="absolute bottom-6 right-6 bg-luxuryGold text-[10px] tracking-[0.25em] text-luxuryBlack uppercase py-2 px-4 font-bold z-20">NAKON TRETMANA</span>
+                            </div>
+                        </div>
+
+                        <!-- Slider Handle bar -->
+                        <div class="absolute top-0 bottom-0 w-[2px] bg-luxuryGold z-30 cursor-ew-resize" id="sliderHandle" style="left: 50%;">
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-luxuryBlack border-2 border-luxuryGold flex items-center justify-center text-luxuryGold shadow-2xl">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 9l-4 4 4 4m8 0l4-4-4-4"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <span class="text-xs text-luxuryGray mt-6 tracking-wider font-light flex items-center space-x-2">
+                        <i class="fa-solid fa-arrows-left-right animate-pulse text-luxuryGold"></i>
+                        <span>Prevucite kursorom levo i desno da biste uporedili rezultate</span>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- EMINENT DOCTORS (THE TEAM - Integrated with authentic client photos) -->
+    <section id="doctors" class="py-24 lg:py-36 bg-luxuryCream relative">
+        <div class="absolute top-0 left-0 w-full h-[1px] bg-luxuryLightGray"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-16">
+            
+            <div class="text-center max-w-2xl mx-auto mb-20 lg:mb-28 space-y-4">
+                <span class="text-[11px] uppercase tracking-[0.4em] text-luxuryGold font-semibold block">Ekspertski Tim</span>
+                <h2 class="text-3xl lg:text-5xl font-light text-luxuryBlack">Eminentni stručnjaci estetske hirurgije</h2>
+                <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
+                <p class="text-luxuryGray text-sm lg:text-base font-light leading-relaxed mt-4">
+                    Poverite svoje zdravlje i lepotu lekarima sa višedecenijskim ugledom u oblasti plastične i rekonstruktivne hirurgije.
+                </p>
+            </div>
+
+            <!-- Doctors Dual Presentation -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                
+                <!-- Doctor 1 Profile: Dr. Goran Gaćeša (Blue Shirt - 1000026062.jpg) -->
+                <div class="group bg-luxuryBeige border border-luxuryLightGray/50 overflow-hidden transition-lux shadow-sm hover:shadow-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-12 text-luxuryBlack">
+                        <!-- Left Side Image container -->
+                        <div class="md:col-span-5 relative overflow-hidden bg-luxuryCharcoal min-h-[340px] flex items-center justify-center">
+                            <img src="1000026062.jpg" 
+                                 alt="Dr Goran Gaćeša" 
+                                 class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-[1.5s] group-hover:scale-105 z-10">
+                            <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack/40 via-transparent to-transparent z-20"></div>
+                        </div>
+                        <!-- Right Side Details -->
+                        <div class="md:col-span-7 p-8 lg:p-10 flex flex-col justify-between space-y-6">
+                            <div class="space-y-3">
+                                <span class="text-[10px] uppercase tracking-[0.3em] text-luxuryGold font-bold block">Suosnivač &amp; Plastični Hirurg</span>
+                                <h3 class="text-2xl font-light leading-tight">Mr med. sci. <br><span class="font-bold text-luxuryGold font-serif">Dr Goran Gaćeša</span></h3>
+                                <p class="text-xs text-luxuryGray leading-relaxed font-light">
+                                    Specijalista plastične i rekonstruktivne hirurgije. Medicinski fakultet u Beogradu završio 1998. godine. Usavršavao se na VMA i u vodećim evropskim klinikama.
+                                </p>
+                            </div>
+                            <div class="space-y-2 text-xs text-luxuryGray font-light border-t border-luxuryLightGray/60 pt-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-1.5 h-1.5 bg-luxuryGold rounded-full"></span>
+                                    <span>Specijalizirao plastičnu hirurgiju 2006. godine</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-1.5 h-1.5 bg-luxuryGold rounded-full"></span>
+                                    <span>Ekspert za rinoplastiku i oblikovanje tela</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 2 Profile: Dr. Milan Filipović (Black Suit - 1000026061.jpg) -->
+                <div class="group bg-luxuryBeige border border-luxuryLightGray/50 overflow-hidden transition-lux shadow-sm hover:shadow-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-12 text-luxuryBlack">
+                        <!-- Left Side Image container -->
+                        <div class="md:col-span-5 relative overflow-hidden bg-luxuryCharcoal min-h-[340px] flex items-center justify-center">
+                            <img src="1000026061.jpg" 
+                                 alt="Dr Milan Filipović" 
+                                 class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-[1.5s] group-hover:scale-105 z-10">
+                            <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack/40 via-transparent to-transparent z-20"></div>
+                        </div>
+                        <!-- Right Side Details -->
+                        <div class="md:col-span-7 p-8 lg:p-10 flex flex-col justify-between space-y-6">
+                            <div class="space-y-3">
+                                <span class="text-[10px] uppercase tracking-[0.3em] text-luxuryGold font-bold block">Profesor &amp; Plastični Hirurg</span>
+                                <h3 class="text-2xl font-light leading-tight">Prof. dr med. sci. <br><span class="font-bold text-luxuryGold font-serif">Dr Milan Filipović</span></h3>
+                                <p class="text-xs text-luxuryGray leading-relaxed font-light">
+                                    Doktor medicinskih nauka i profesor na katedri hirurgije. Završio specijalizaciju iz rekonstruktivne i estetske hirurgije 2000. godine u Beogradu.
+                                </p>
+                            </div>
+                            <div class="space-y-2 text-xs text-luxuryGray font-light border-t border-luxuryLightGray/60 pt-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-1.5 h-1.5 bg-luxuryGold rounded-full"></span>
+                                    <span>Magistar od 1998, Doktor nauka od 2009.</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-1.5 h-1.5 bg-luxuryGold rounded-full"></span>
+                                    <span>Autoritet na polju rekonstrukcije i anti-aginga</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- LUXURIOUS PATIENT TESTIMONIALS (EDITORIAL STYLE) -->
+    <section id="testimonials" class="py-24 lg:py-36 bg-luxuryBlack text-white relative overflow-hidden">
+        <div class="absolute top-[30%] right-[-20%] w-[600px] h-[600px] rounded-full bg-luxuryGold/5 filter blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Section Intro Text Left -->
+                <div class="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
+                    <span class="text-[11px] uppercase tracking-[0.4em] text-luxuryGold font-semibold block">Iskustva Pacijenata</span>
+                    <h2 class="text-3xl lg:text-5xl font-light text-luxuryCream leading-tight">Rekli su o <br><span class="italic font-serif font-medium">nama</span>.</h2>
+                    <p class="text-luxuryBeige/70 text-sm leading-relaxed font-light">
+                        Izuzetnost se ne meri samo rečima, već iskrenim osmesima naših pacijenata nakon uspešnih promena.
+                    </p>
+                    <div class="pt-6">
+                        <div class="flex space-x-4">
+                            <button id="prevTestimonial" class="w-12 h-12 rounded-full border border-white/20 hover:border-luxuryGold flex items-center justify-center text-white hover:text-luxuryGold transition-lux focus:outline-none" aria-label="Prethodno">
+                                <i class="fa-solid fa-chevron-left text-sm"></i>
+                            </button>
+                            <button id="nextTestimonial" class="w-12 h-12 rounded-full border border-white/20 hover:border-luxuryGold flex items-center justify-center text-white hover:text-luxuryGold transition-lux focus:outline-none" aria-label="Sledeće">
+                                <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonials Dynamic Showcase Right -->
+                <div class="lg:col-span-8 overflow-hidden">
+                    <div class="flex transition-transform duration-700 ease-in-out gap-8" id="testimonialsSlider" style="transform: translateX(0px);">
+                        
+                        <!-- Testimonial 1 -->
+                        <div class="min-w-[100%] md:min-w-[48%] bg-luxuryCharcoal border border-white/10 p-8 lg:p-12 space-y-6 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="flex text-luxuryGold space-x-1 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <blockquote class="text-base lg:text-lg text-luxuryBeige italic font-serif leading-relaxed">
+                                    "Dr Gaćeša je pre svega izuzetan čovek, pa onda vrhunski stručnjak. Moja korekcija kapaka je urađena toliko suptilno da svi primećuju da izgledam odmornije, a niko ne prepoznaje da je u pitanju bila operacija."
+                                </blockquote>
+                            </div>
+                            <div class="border-t border-white/10 pt-6 flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-sm font-semibold tracking-wide">Jelena M.</h4>
+                                    <span class="text-[10px] uppercase tracking-widest text-luxuryGray">Beograd, Blefaroplastika</span>
+                                </div>
+                                <span class="text-3xl font-serif text-luxuryGold/40">“</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="min-w-[100%] md:min-w-[48%] bg-luxuryCharcoal border border-white/10 p-8 lg:p-12 space-y-6 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="flex text-luxuryGold space-x-1 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <blockquote class="text-base lg:text-lg text-luxuryBeige italic font-serif leading-relaxed">
+                                    "MedicHill je jedino mesto u regionu gde imam potpuno poverenje kada su u pitanju anti-aging tretmani. Profesor Filipović poseduje vrhunski osećaj za estetiku lica."
+                                </blockquote>
+                            </div>
+                            <div class="border-t border-white/10 pt-6 flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-sm font-semibold tracking-wide">Marija S.</h4>
+                                    <span class="text-[10px] uppercase tracking-widest text-luxuryGray">Novi Sad, Hijaluronski fileri</span>
+                                </div>
+                                <span class="text-3xl font-serif text-luxuryGold/40">“</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="min-w-[100%] md:min-w-[48%] bg-luxuryCharcoal border border-white/10 p-8 lg:p-12 space-y-6 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="flex text-luxuryGold space-x-1 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <blockquote class="text-base lg:text-lg text-luxuryBeige italic font-serif leading-relaxed">
+                                    "Funkcionalno disanje i izgled mog novog nosa su promenili moj život. Ceo proces oporavka uz pažnju osoblja MedicHill klinike bio je predivan i maksimalno bezbolan."
+                                </blockquote>
+                            </div>
+                            <div class="border-t border-white/10 pt-6 flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-sm font-semibold tracking-wide">Marko K.</h4>
+                                    <span class="text-[10px] uppercase tracking-widest text-luxuryGray">Beograd, Rinoplastika</span>
+                                </div>
+                                <span class="text-3xl font-serif text-luxuryGold/40">“</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FAQ SECTION (LUXURY INTERACTIVE ACCORDIONS) -->
+    <section id="faq" class="py-24 lg:py-36 bg-luxuryCream relative">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="text-center mb-16 lg:mb-24 space-y-4">
+                <span class="text-[11px] uppercase tracking-[0.4em] text-luxuryGold font-semibold block">Imate Pitanja?</span>
+                <h2 class="text-3xl lg:text-5xl font-light text-luxuryBlack">Često postavljana pitanja</h2>
+                <p class="text-luxuryGray text-xs uppercase tracking-[0.2em] mt-2">Sve o procedurama, pripremi i periodu oporavka</p>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="border-b border-luxuryLightGray pb-6">
+                    <button class="w-full flex justify-between items-center text-left focus:outline-none faq-trigger group py-4">
+                        <span class="text-base lg:text-lg font-medium text-luxuryBlack group-hover:text-luxuryGold transition-lux">Koliko traje oporavak nakon rinoplastike (korekcije nosa)?</span>
+                        <span class="ml-4 text-luxuryGold transition-transform duration-300 transform faq-icon">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                        <p class="text-sm text-luxuryGray font-light leading-relaxed pt-2">
+                            Inicijalni oporavak traje u proseku 7 do 10 dana, nakon čega se uklanja zaštitna maska i pacijent se može vratiti lakšim društvenim aktivnostima. Krajnji rezultat i savršena estetika se definišu u periodu do 6-12 meseci kako se otoci potpuno povlače. Svi detalji postoperativnog protokola se dobijaju na konsultaciji.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border-b border-luxuryLightGray pb-6">
+                    <button class="w-full flex justify-between items-center text-left focus:outline-none faq-trigger group py-4">
+                        <span class="text-base lg:text-lg font-medium text-luxuryBlack group-hover:text-luxuryGold transition-lux">Da li su procedure podmlađivanja filerima bezbolne?</span>
+                        <span class="ml-4 text-luxuryGold transition-transform duration-300 transform faq-icon">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                        <p class="text-sm text-luxuryGray font-light leading-relaxed pt-2">
+                            Pre svake neinvazivne intervencije (hijaluronski fileri ili botoks), na željenu regiju se aplicira visoko-efikasan lokalni anestetik u obliku kreme. Takođe, sami fileri najnovije generacije u sebi sadrže lidokain (anestetik), što proceduru čini maksimalno komfornom i praktično bezbolnom.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border-b border-luxuryLightGray pb-6">
+                    <button class="w-full flex justify-between items-center text-left focus:outline-none faq-trigger group py-4">
+                        <span class="text-base lg:text-lg font-medium text-luxuryBlack group-hover:text-luxuryGold transition-lux">Koje su prednosti blefaroplastike (operacije kapaka)?</span>
+                        <span class="ml-4 text-luxuryGold transition-transform duration-300 transform faq-icon">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                        <p class="text-sm text-luxuryGray font-light leading-relaxed pt-2">
+                            Blefaroplastika je jedna od najpopularnijih hirurških procedura jer dramatično, a prirodno osvežava celokupan izgled lica. Uklanja se umoran izgled očiju, teški kapci koji mogu ometati vid i masne kesice ispod očiju. Rezultati traju dugi niz godina i ožiljci su potpuno neprimetni jer se skrivaju u prirodnim naborima kože.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border-b border-luxuryLightGray pb-6">
+                    <button class="w-full flex justify-between items-center text-left focus:outline-none faq-trigger group py-4">
+                        <span class="text-base lg:text-lg font-medium text-luxuryBlack group-hover:text-luxuryGold transition-lux">Kako se zakazuje prva konsultacija u MedicHill ordinaciji?</span>
+                        <span class="ml-4 text-luxuryGold transition-transform duration-300 transform faq-icon">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                        <p class="text-sm text-luxuryGray font-light leading-relaxed pt-2">
+                            Konsultaciju možete zakazati popunjavanjem formulara na dnu ove strane, direktnim pozivom na brojeve telefona <a href="tel:0644900900" class="text-luxuryGold font-medium hover:underline">064/4-900-900</a> ili putem brze WhatsApp prečice za trenutnu komunikaciju sa našim medicinskim osobljem.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FINAL CONVERSION & CONTACT SECTION (THE CORE PLATFORM) -->
+    <section id="contact" class="py-24 lg:py-36 bg-luxuryBeige relative overflow-hidden">
+        <div class="absolute top-[10%] left-[-10%] w-[450px] h-[450px] rounded-full bg-luxuryGold/10 filter blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+                
+                <!-- Left Hand Side: Contact Info & Luxury Statement -->
+                <div class="lg:col-span-5 space-y-8">
+                    <span class="text-[11px] uppercase tracking-[0.4em] text-luxuryGold font-semibold block">Vreme Za Transformaciju</span>
+                    <h2 class="text-3xl lg:text-6xl font-light text-luxuryBlack leading-tight">
+                        Zakažite Vaš <br>ekskluzivni <br><span class="italic font-serif font-medium">pregled</span>.
+                    </h2>
+                    
+                    <p class="text-luxuryGray text-sm lg:text-base leading-relaxed font-light">
+                        MedicHill garantuje apsolutnu diskreciju, vrhunske higijensko-operacione uslove i posvećenost hirurga od prve konsultacije do finalnog postoperativnog ishoda. Naša ordinacija na Banovom brdu nudi savršen spoj privatnosti i vrhunske brige.
+                    </p>
+
+                    <!-- Contact Details Card -->
+                    <div class="bg-luxuryCream border border-luxuryLightGray p-8 space-y-6 shadow-sm">
+                        <h4 class="text-xs uppercase tracking-[0.25em] text-luxuryBlack font-bold border-b border-luxuryLightGray pb-4">Kontakt Informacije</h4>
+                        
+                        <div class="space-y-4 text-sm font-light text-luxuryGray">
+                            <div class="flex items-start space-x-4">
+                                <i class="fa-solid fa-location-dot text-luxuryGold mt-1"></i>
+                                <div>
+                                    <p class="font-semibold text-luxuryBlack">Adresa Ordinacije</p>
+                                    <p class="text-xs mt-0.5">Požeška 80, Lokal 18, Banovo brdo, 11000 Beograd</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <i class="fa-solid fa-phone text-luxuryGold mt-1"></i>
+                                <div>
+                                    <p class="font-semibold text-luxuryBlack">Telefoni za Informacije</p>
+                                    <p class="text-xs mt-0.5"><a href="tel:0644900900" class="hover:text-luxuryGold font-medium">064/4-900-900</a> &nbsp;|&nbsp; <a href="tel:0113555955" class="hover:text-luxuryGold font-medium">011/3-555-955</a></p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <i class="fa-solid fa-envelope text-luxuryGold mt-1"></i>
+                                <div>
+                                    <p class="font-semibold text-luxuryBlack">E-mail adresa</p>
+                                    <p class="text-xs mt-0.5"><a href="mailto:milan.medichill@gmail.com" class="hover:text-luxuryGold">milan.medichill@gmail.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Direct WhatsApp and Call buttons -->
+                        <div class="pt-4 grid grid-cols-2 gap-4">
+                            <a href="https://wa.me/381644900900" target="_blank" class="flex justify-center items-center space-x-2 text-xs uppercase tracking-[0.15em] bg-[#25D366] text-white py-3.5 font-bold hover:opacity-90 transition-lux">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="tel:0644900900" class="flex justify-center items-center space-x-2 text-xs uppercase tracking-[0.15em] bg-luxuryBlack text-white py-3.5 font-bold hover:bg-luxuryGold hover:text-black transition-lux">
+                                <i class="fa-solid fa-phone-flip"></i>
+                                <span>Pozovite</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Luxury Styled Vector-Map Frame -->
+                    <div class="relative w-full h-48 border border-luxuryLightGray overflow-hidden shadow-sm bg-luxuryCream">
+                        <div class="absolute inset-0 bg-[#f4ede4] p-4 flex flex-col justify-between">
+                            <div class="space-y-1">
+                                <span class="text-[9px] uppercase tracking-widest text-luxuryGold font-semibold">Lokacija klinike</span>
+                                <h5 class="text-xs font-semibold text-luxuryBlack">MedicHill Beograd</h5>
+                                <p class="text-[10px] text-luxuryGray leading-tight">U neposrednoj blizini Doma Zdravlja Čukarica, Banovo brdo.</p>
+                            </div>
+                            <div class="border-t border-luxuryLightGray/60 pt-2 flex justify-between items-center text-[10px] text-luxuryGray">
+                                <span>Linije GSP-a: 23, 37, 51, 52, 85, 88</span>
+                                <span class="text-luxuryGold"><i class="fa-solid fa-diamond-turn-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hand Side: High-End Interactive Form -->
+                <div class="lg:col-span-7 bg-luxuryCream border border-luxuryLightGray p-8 lg:p-12 shadow-2xl relative">
+                    <div class="space-y-4 mb-8">
+                        <h3 class="text-2xl font-light text-luxuryBlack">Zahtev za konsultaciju</h3>
+                        <p class="text-xs text-luxuryGray font-light">Molimo Vas da popunite podatke u nastavku. Naš koordinator estetske hirurgije će Vas kontaktirati u roku od maksimalno 2 sata radi potvrde termina.</p>
+                    </div>
+
+                    <!-- Booking Form -->
+                    <form id="bookingForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            
+                            <!-- Input Name -->
+                            <div class="space-y-1">
+                                <label for="form_name" class="text-[10px] uppercase tracking-[0.2em] text-luxuryGray font-bold block">Ime i prezime *</label>
+                                <input type="text" id="form_name" required 
+                                       class="w-full bg-transparent border-b border-luxuryLightGray focus:border-luxuryGold py-3 text-sm focus:outline-none transition-lux text-luxuryBlack font-light" 
+                                       placeholder="Npr. Jelena Jovanović">
+                            </div>
+
+                            <!-- Input Phone -->
+                            <div class="space-y-1">
+                                <label for="form_phone" class="text-[10px] uppercase tracking-[0.2em] text-luxuryGray font-bold block">Broj telefona *</label>
+                                <input type="tel" id="form_phone" required 
+                                       class="w-full bg-transparent border-b border-luxuryLightGray focus:border-luxuryGold py-3 text-sm focus:outline-none transition-lux text-luxuryBlack font-light" 
+                                       placeholder="Npr. +381 64 1234567">
+                            </div>
+
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            
+                            <!-- Input Email -->
+                            <div class="space-y-1">
+                                <label for="form_email" class="text-[10px] uppercase tracking-[0.2em] text-luxuryGray font-bold block">E-mail adresa</label>
+                                <input type="email" id="form_email" 
+                                       class="w-full bg-transparent border-b border-luxuryLightGray focus:border-luxuryGold py-3 text-sm focus:outline-none transition-lux text-luxuryBlack font-light" 
+                                       placeholder="Npr. jelena@example.com">
+                            </div>
+
+                            <!-- Dropdown Select Procedure -->
+                            <div class="space-y-1">
+                                <label for="form_procedure" class="text-[10px] uppercase tracking-[0.2em] text-luxuryGray font-bold block">Željena procedura *</label>
+                                <select id="form_procedure" required 
+                                        class="w-full bg-transparent border-b border-luxuryLightGray focus:border-luxuryGold py-3 text-sm focus:outline-none transition-lux text-luxuryBlack font-light cursor-pointer">
+                                    <option value="" disabled selected>Izaberite proceduru...</option>
+                                    <option value="botoks">Botoks lica</option>
+                                    <option value="rinoplastika">Rinoplastika (Korekcija Nosa)</option>
+                                    <option value="blefaroplastika">Blefaroplastika (Gornji/Donji Kapci)</option>
+                                    <option value="hijaluron">Hijaluronski Fileri</option>
+                                    <option value="podmladjivanje">Dubinsko Podmlađivanje (Niti/PRP)</option>
+                                    <option value="liposukcija">Liposukcija i Vajanje Tela</option>
+                                    <option value="drugo">Druge Hirurške Intervencije</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- Date selection -->
+                        <div class="space-y-1">
+                            <label for="form_date" class="text-[10px] uppercase tracking-[0.2em] text-luxuryGray font-bold block">Predloženi datum za konsultaciju</label>
+                            <input type="date" id="form_date" 
+                                   class="w-full bg-transparent border-b border-luxuryLightGray focus:border-luxuryGold py-3 text-sm focus:outline-none transition-lux text-luxuryBlack font-light cursor-pointer">
+                        </div>
+
+                        <!-- Message Box -->
+                        <div class="space-y-1">
+                            <label for="form_message" class="text-[10px] uppercase tracking-[0.2em] text-luxuryGray font-bold block">Vaša poruka ili specifični zahtevi</label>
+                            <textarea id="form_message" rows="4" 
+                                      class="w-full bg-transparent border-b border-luxuryLightGray focus:border-luxuryGold py-3 text-sm focus:outline-none transition-lux text-luxuryBlack font-light resize-none" 
+                                      placeholder="Opišite detaljnije šta želite da postignete tretmanom..."></textarea>
+                        </div>
+
+                        <!-- Submit CTA -->
+                        <button type="submit" 
+                                class="w-full text-center text-xs uppercase tracking-[0.25em] bg-luxuryBlack text-white py-5 font-bold hover:bg-luxuryGold hover:text-luxuryBlack transition-lux">
+                            Zakaži Ekskluzivnu Konsultaciju
+                        </button>
+
+                        <div class="text-center">
+                            <span class="text-[10px] text-luxuryGray font-light">Slanjem ove forme prihvatate politiku o zaštiti ličnih podataka MedicHill klinike.</span>
+                        </div>
+                    </form>
+
+                    <!-- Success Alert Overlay -->
+                    <div id="formSuccessOverlay" class="absolute inset-0 bg-luxuryCream/95 flex flex-col items-center justify-center p-8 text-center opacity-0 pointer-events-none transition-opacity duration-500 z-20">
+                        <div class="w-16 h-16 rounded-full border border-luxuryGold flex items-center justify-center text-luxuryGold text-2xl mb-6 animate-bounce">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h4 class="text-2xl font-light text-luxuryBlack mb-2">Uspešno ste poslali zahtev</h4>
+                        <p class="text-sm text-luxuryGray max-w-md font-light leading-relaxed">
+                            Zahvaljujemo Vam se na ukazanom poverenju. Naš tim stručnih koordinatora će Vas kontaktirati u najkraćem roku radi dogovora o idealnom terminu.
+                        </p>
+                        <button onclick="resetCustomForm()" class="mt-8 text-xs uppercase tracking-[0.2em] border border-luxuryGold/40 text-luxuryBlack py-3 px-8 hover:bg-luxuryBlack hover:text-white hover:border-luxuryBlack transition-lux">
+                            Vrati se na formu
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EXTREMELY PREMIUM FOOTER -->
+    <footer class="bg-luxuryBlack text-white pt-20 pb-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-16">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-white/5">
+                
+                <!-- Col 1: Brand -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="relative w-12 h-12 rounded-full overflow-hidden border border-luxuryGold/30 bg-white p-0.5 flex items-center justify-center">
+                            <img src="Logo-Medic-Hill-01-1-1.png" alt="MedicHill Logo" class="w-full h-full object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex items-baseline space-x-0.5">
+                                <span class="text-2xl font-light tracking-[0.1em] uppercase text-white">Medic</span>
+                                <span class="text-2xl font-bold tracking-[0.1em] uppercase text-luxuryGold">Hill</span>
+                            </div>
+                            <span class="text-[8px] tracking-[0.38em] uppercase text-luxuryGray font-semibold">Estetska Hirurgija</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-luxuryGray leading-relaxed font-light">
+                        Vrhunski centar za plastičnu, estetsku i rekonstruktivnu hirurgiju u Beogradu. Spajamo vrhunsku evropsku nauku sa rafiniranom umetničkom estetikom.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/" target="_blank" class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-luxuryGray hover:text-luxuryGold hover:border-luxuryGold transition-lux" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-luxuryGray hover:text-luxuryGold hover:border-luxuryGold transition-lux" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="https://wa.me/381644900900" target="_blank" class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-luxuryGray hover:text-luxuryGold hover:border-luxuryGold transition-lux" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h5 class="text-xs uppercase tracking-[0.25em] text-luxuryGold font-semibold">Brzi Linkovi</h5>
+                    <ul class="space-y-2 text-xs text-luxuryGray font-light">
+                        <li><a href="#procedures" class="hover:text-white transition-lux">Pregled Procedura</a></li>
+                        <li><a href="#before-after" class="hover:text-white transition-lux">Pre &amp; Posle</a></li>
+                        <li><a href="#doctors" class="hover:text-white transition-lux">Eminentni Lekari</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-lux">Recenzije Pacijenata</a></li>
+                        <li><a href="#faq" class="hover:text-white transition-lux">Najčešća Pitanja</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Core Procedures quick access -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h5 class="text-xs uppercase tracking-[0.25em] text-luxuryGold font-semibold">Glavne Procedure</h5>
+                    <ul class="space-y-2 text-xs text-luxuryGray font-light">
+                        <li><a href="#procedures" class="hover:text-white transition-lux">Botoks Tretmani Lica</a></li>
+                        <li><a href="#procedures" class="hover:text-white transition-lux">Korekcija Nosa (Rinoplastika)</a></li>
+                        <li><a href="#procedures" class="hover:text-white transition-lux">Operacija Kapaka (Blefaroplastika)</a></li>
+                        <li><a href="#procedures" class="hover:text-white transition-lux">Hijaluronski Fileri</a></li>
+                        <li><a href="#procedures" class="hover:text-white transition-lux">Dubinsko Podmlađivanje Niti</a></li>
+                        <li><a href="#procedures" class="hover:text-white transition-lux">Liposukcija i Zatezanje Tela</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Operational hours -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h5 class="text-xs uppercase tracking-[0.25em] text-luxuryGold font-semibold">Radno Vreme</h5>
+                    <ul class="space-y-2 text-xs text-luxuryGray font-light">
+                        <li class="flex justify-between font-sans"><span>Ponedeljak - Petak</span> <span class="text-white">10:00 - 20:00</span></li>
+                        <li class="flex justify-between font-sans"><span>Subota</span> <span class="text-white">Po dogovoru</span></li>
+                        <li class="flex justify-between font-sans"><span>Nedelja</span> <span class="text-luxuryGold">Zatvoreno</span></li>
+                    </ul>
+                    <div class="pt-2">
+                        <p class="text-[10px] text-luxuryGray leading-relaxed font-light">
+                            Uvažavamo hitne konsultacije i intervencije van radnog vremena uz prethodnu proveru i dogovor sa lekarom.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom License & Copyright -->
+            <div class="pt-12 flex flex-col md:flex-row justify-between items-center text-[10px] text-luxuryGray tracking-wider uppercase space-y-4 md:space-y-0">
+                <p>&copy; 2026 MEDIC HILL BEOGRAD. SVA PRAVA ZADRŽANA.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-lux">Politika Privatnosti</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white transition-lux">Uslovi Korišćenja</a>
+                    <span>|</span>
+                    <span class="text-luxuryGold font-semibold">Est. 2016</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- Interactive Vanilla JS Logic -->
+    <script>
+        // Custom interactive cursor logic for desktop luxury styling
+        const cursor = document.getElementById('customCursor');
+        const cursorDot = document.getElementById('customCursorDot');
+
+        if (cursor && cursorDot) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                cursorDot.style.left = e.clientX + 'px';
+                cursorDot.style.top = e.clientY + 'px';
+            });
+        }
+
+        // Header Style Shift on Scroll
+        const mainHeader = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                mainHeader.classList.add('glass-premium', 'py-3', 'shadow-md');
+                mainHeader.classList.remove('py-4');
+            } else {
+                mainHeader.classList.remove('glass-premium', 'py-3', 'shadow-md');
+                mainHeader.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu Toggling
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+        }
+
+        // Stats counter animation logic
+        const counters = document.querySelectorAll('.counter');
+        const speed = 100; // Counter velocity adjustment
+
+        const startCount = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(() => startCount(counter), 20);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        // Trigger counter animation only when section is visible
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionCounters = entry.target.querySelectorAll('.counter');
+                    sectionCounters.forEach(counter => startCount(counter));
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const trustSection = document.querySelector('.counter')?.closest('section');
+        if (trustSection) {
+            counterObserver.observe(trustSection);
+        }
+
+        // Interactive Before & After comparison slider logic
+        const slider = document.getElementById('baSlider');
+        const afterImage = document.getElementById('afterImageContainer');
+        const handle = document.getElementById('sliderHandle');
+
+        const adjustSlider = (clientX) => {
+            const rect = slider.getBoundingClientRect();
+            const position = clientX - rect.left;
+            let percentage = (position / rect.width) * 100;
+
+            if (percentage < 0) percentage = 0;
+            if (percentage > 100) percentage = 100;
+
+            afterImage.style.width = percentage + '%';
+            handle.style.left = percentage + '%';
+        };
+
+        let isDragging = false;
+
+        if (slider && afterImage && handle) {
+            slider.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                adjustSlider(e.clientX);
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                adjustSlider(e.clientX);
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            // Touch support for mobile devices
+            slider.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                adjustSlider(e.touches[0].clientX);
+            });
+
+            slider.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                adjustSlider(e.touches[0].clientX);
+            });
+
+            window.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+        }
+
+        // FAQ Interactive accordion logic
+        const faqTriggers = document.querySelectorAll('.faq-trigger');
+        faqTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const content = trigger.nextElementSibling;
+                const icon = trigger.querySelector('.faq-icon');
+                
+                // Toggle active class on trigger parent
+                const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+                
+                // Close all others first
+                document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+                document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(45deg)';
+                } else {
+                    content.style.maxHeight = '0px';
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Testimonial Carousel slider control logic
+        const testimonialsSlider = document.getElementById('testimonialsSlider');
+        const prevTestimonial = document.getElementById('prevTestimonial');
+        const nextTestimonial = document.getElementById('nextTestimonial');
+        
+        let activeIndex = 0;
+
+        if (testimonialsSlider && prevTestimonial && nextTestimonial) {
+            const cardWidth = testimonialsSlider.children[0].clientWidth;
+            const gap = 32; // Gap specified in HTML classes
+            
+            nextTestimonial.addEventListener('click', () => {
+                const totalCards = testimonialsSlider.children.length;
+                const visibleCount = window.innerWidth >= 768 ? 2 : 1;
+                
+                if (activeIndex < totalCards - visibleCount) {
+                    activeIndex++;
+                    const offset = -(cardWidth + gap) * activeIndex;
+                    testimonialsSlider.style.transform = `translateX(${offset}px)`;
+                }
+            });
+
+            prevTestimonial.addEventListener('click', () => {
+                if (activeIndex > 0) {
+                    activeIndex--;
+                    const offset = -(cardWidth + gap) * activeIndex;
+                    testimonialsSlider.style.transform = `translateX(${offset}px)`;
+                }
+            });
+        }
+
+        // Custom Luxury Booking Form actions
+        const bookingForm = document.getElementById('bookingForm');
+        const formSuccessOverlay = document.getElementById('formSuccessOverlay');
+
+        if (bookingForm && formSuccessOverlay) {
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Play smooth interactive animation showing success
+                formSuccessOverlay.classList.remove('pointer-events-none', 'opacity-0');
+                formSuccessOverlay.classList.add('opacity-100');
+            });
+        }
+
+        function resetCustomForm() {
+            if (bookingForm && formSuccessOverlay) {
+                bookingForm.reset();
+                formSuccessOverlay.classList.add('pointer-events-none', 'opacity-0');
+                formSuccessOverlay.classList.remove('opacity-100');
+            }
+        }
+    </script>
+</body>
+</html>
